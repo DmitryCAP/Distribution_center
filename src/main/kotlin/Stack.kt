@@ -12,10 +12,15 @@ class Stack<T>() {
 
     fun isEmpty(): Boolean {
         return stack.isEmpty()
-    }
 
+//fun iterator(cargo: Stack<T>): Iterator<T>{
+//    return cargo.iterator()
+
+
+
+}
     fun info(): Int {
-        println("magazine include of patron: ${stack.size}")
+        println("magazine include of: ${stack.size}")
         println(stack.toString())
         return stack.size
     }
