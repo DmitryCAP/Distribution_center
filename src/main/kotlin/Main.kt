@@ -6,7 +6,7 @@ import kotlin.random.Random
 
 var randomTruck: Truck? = null
 val distributionCenter = DistributionCenter()
-fun main() {
+ fun main() {
 
     runBlocking {
 
@@ -22,6 +22,7 @@ fun main() {
 
         }
     }
+
     distributionCenter.info()
 }
 
@@ -61,6 +62,10 @@ fun CoroutineScope.launchProcessor(id: Int, channel: ReceiveChannel<Truck>) = la
     for (msg in channel) {
 
         println("Processor #$id received $msg")
+
+          
+
+
         distributionCenter.cargoEject = distributionCenter.cargoArray(msg.cargo)
 
         println("pazgruzka tracka.Distribution center include: ${distributionCenter.info()}")
