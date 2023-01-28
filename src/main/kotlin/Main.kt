@@ -24,6 +24,12 @@ val distributionCenter = DistributionCenter()
     }
 
     distributionCenter.info()
+
+//     val coldFlow = flow {      //холодны Flow . Начинает создание канала (погрузку грузовика) когда появляется подписчик
+//         while (isActive) {
+//             emit(nextEvent)
+//         }
+//     }
 }
 
 fun CoroutineScope.produceTruckCargo() = produce<Truck> {

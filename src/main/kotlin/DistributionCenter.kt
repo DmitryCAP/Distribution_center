@@ -1,4 +1,6 @@
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 class DistributionCenter {
     val numberOfUnloading = 2
@@ -16,4 +18,17 @@ class DistributionCenter {
             return cargoEject
 
         }
+    private val mutex = Mutex()
+
+//    suspend fun getElementFromStorage(): Cargo {
+//
+//        mutex.withLock {
+//cargoEject.forEach()
+//            //код по получению элементов из хранилища
+//
+//            return Cargo()
+//
+//        }
+//
+//    }
 }
