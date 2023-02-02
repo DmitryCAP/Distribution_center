@@ -8,24 +8,24 @@ var randomTruck: Truck? = null
 val distributionCenter = DistributionCenter()
  fun main() {
 
-    runBlocking {
+     runBlocking {
 
         val channel = Channel<Truck>()
 
         launch {
 
-            repeat(5) {
+            repeat(2) {
                 val producer = produceTruckCargo()
                 repeat(distributionCenter.numberOfUnloading) { launchProcessor(it, producer) }
                 println("receive..${channel.receive()}..cargo- ${randomTruck?.cargo.toString()}")
+                distributionCenter.info()
             }
 
         }
     }
 
-    distributionCenter.info()
 
-//     val coldFlow = flow {      //холодны Flow . Начинает создание канала (погрузку грузовика) когда появляется подписчик
+//     val coldFlow = flow {      //холодный Flow . Начинает создание канала (погрузку грузовика) когда появляется подписчик
 //         while (isActive) {
 //             emit(nextEvent)
 //         }
@@ -59,6 +59,7 @@ fun CoroutineScope.produceTruckCargo() = produce<Truck> {
 
         // delay(time.toLong())
         delay(1000)
+
     }
 
 
@@ -75,6 +76,8 @@ fun CoroutineScope.launchProcessor(id: Int, channel: ReceiveChannel<Truck>) = la
         distributionCenter.cargoEject = distributionCenter.cargoArray(msg.cargo)
 
         println("pazgruzka tracka.Distribution center include: ${distributionCenter.info()}")
+distributionCenter.sortedCargo()
+        yield()
     }
 
 }
