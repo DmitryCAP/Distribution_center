@@ -18,7 +18,18 @@ class DistributionCenter {
     val washingMachineList = mutableListOf<Cargo?>()
 
     fun info() {
-        println("distribution center include: ${cargoEject.size}")
+        println(
+            "distribution center include: Unsorted cargo: ${cargoEject.size}" + "\n" +
+                    " Milk-${milkList.size}" + "\n" +
+                    " Bread-${breadList.size}" + "\n" +
+                    " Potato-${potatoList.size}" + "\n" +
+                    " Nails-${nailsList.size}" + "\n" +
+                    " Screws-${screwsList.size}" + "\n" +
+                    " Notebook-${notebookList.size}" + "\n" +
+                    " Textbook-${textbookList.size}" + "\n" +
+                    " Fridge-${fridgeList.size}" + "\n" +
+                    " WashingMachine-${washingMachineList.size}."
+        )
     }
 
     fun cargoArray(cargo: MutableList<Cargo?>): MutableList<Cargo?> {
@@ -47,10 +58,8 @@ class DistributionCenter {
                     is Oversized.WashingMachine -> washingMachineList.add(it)
 
                 }
-
-
                 println("Cargo sorted: $it")
-               // cargoEject.remove(it) // удалить этот элемент из списка cargoEject
+                // cargoEject.remove(it) // удалить этот элемент из списка cargoEject
             }
 
         }

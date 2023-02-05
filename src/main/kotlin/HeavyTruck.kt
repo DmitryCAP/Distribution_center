@@ -4,10 +4,8 @@ class HeavyTruck : Truck() {
     override val cargo: MutableList<Cargo?> = mutableListOf()
     override val loadCapacity = 500
 
-init {
-    loadCargo()
-}
-    private fun loadCargo() {
+
+    override fun loadCargo() {
         val n = Random.nextInt(1, 3)
         when (n) {
             1 -> {

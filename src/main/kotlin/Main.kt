@@ -6,9 +6,9 @@ import kotlin.random.Random
 
 var randomTruck: Truck? = null
 val distributionCenter = DistributionCenter()
- fun main() {
+fun main() {
 
-     runBlocking {
+    runBlocking {
 
         val channel = Channel<Truck>()
 
@@ -19,6 +19,16 @@ val distributionCenter = DistributionCenter()
                 repeat(distributionCenter.numberOfUnloading) { launchProcessor(it, producer) }
                 println("receive..${channel.receive()}..cargo- ${randomTruck?.cargo.toString()}")
                 distributionCenter.info()
+            }
+
+        }
+        launch {
+
+            repeat(2) {
+                val producer2 = produceTruckCargoWithoutLoad()
+                repeat(distributionCenter.numberOfDownload) { launchProcessor(it, producer2) }
+                println("receive..${channel.receive()}")
+
             }
 
         }
@@ -35,34 +45,45 @@ val distributionCenter = DistributionCenter()
 fun CoroutineScope.produceTruckCargo() = produce<Truck> {
 
     while (true) {
-        var n = Random.nextInt(0, 4)
-        when (n) {
+        val n = Random.nextInt(0, 3)
+        randomTruck = when (n) {
             1 -> {
-                randomTruck = LightTruck()
-
+                HeavyTruck()
             }
 
             2 -> {
-                randomTruck = MediumTruck()
+                MediumTruck()
             }
 
-            3 -> {
-                randomTruck = HeavyTruck()
+            else -> LightTruck()
+        }
+        randomTruck!!.loadCargo()
+        send(randomTruck!!) // produce next
+        println("send Truck")
+        delay(1000)
+    }
+}
+
+fun CoroutineScope.produceTruckCargoWithoutLoad() = produce<Truck> {
+
+    while (true) {
+        val n = Random.nextInt(0, 3)
+        randomTruck = when (n) {
+            1 -> {
+                HeavyTruck()
             }
 
-            else -> randomTruck = LightTruck()
+            2 -> {
+                MediumTruck()
+            }
+
+            else -> LightTruck()
         }
 
         send(randomTruck!!) // produce next
-        println("send Truck")
-        //  val time = randomTruck.loadCapacity
-
-        // delay(time.toLong())
+        println("send TruckWithoutLoad")
         delay(1000)
-
     }
-
-
 }
 
 fun CoroutineScope.launchProcessor(id: Int, channel: ReceiveChannel<Truck>) = launch {
@@ -70,14 +91,17 @@ fun CoroutineScope.launchProcessor(id: Int, channel: ReceiveChannel<Truck>) = la
 
         println("Processor #$id received $msg")
 
-          
+
 
 
         distributionCenter.cargoEject = distributionCenter.cargoArray(msg.cargo)
 
-        println("pazgruzka tracka.Distribution center include: ${distributionCenter.info()}")
-distributionCenter.sortedCargo()
-        yield()
+        println("Truck.Distribution center include: ${distributionCenter.info()}")
+        repeat(1) {
+            distributionCenter.sortedCargo()
+        }
+       distributionCenter.info()
+
     }
 
 }
