@@ -10,7 +10,7 @@ fun main() {
 
     runBlocking {
 
-        val channel = Channel<Truck>()
+        val channel = Channel<Truck>(4)
 
         launch {
 
@@ -60,7 +60,7 @@ fun CoroutineScope.produceTruckCargo() = produce<Truck> {
         randomTruck!!.loadCargo()
         send(randomTruck!!) // produce next
         println("send Truck")
-        delay(1000)
+        yield()
     }
 }
 
@@ -82,7 +82,7 @@ fun CoroutineScope.produceTruckCargoWithoutLoad() = produce<Truck> {
 
         send(randomTruck!!) // produce next
         println("send TruckWithoutLoad")
-        delay(1000)
+        yield()
     }
 }
 

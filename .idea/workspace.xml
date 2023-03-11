@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53093db4-fa78-41d0-81bd-747c47f5b8ad" name="Changes" comment="">
+    <list default="true" id="53093db4-fa78-41d0-81bd-747c47f5b8ad" name="Changes" comment="5-02-2023">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/DistributionCenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/DistributionCenter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/HeavyTruck.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/HeavyTruck.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LightTruck.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LightTruck.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/MediumTruck.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MediumTruck.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Truck.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Truck.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +63,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -86,7 +82,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/IdeaProjects/coursework&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/13.5 Корутины.pdf&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
@@ -163,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675355604683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="5-02-2023">
+      <created>1675588899605</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675588899605</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +215,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="1-02-2023" />
     <MESSAGE value="2-02-2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="2-02-2023" />
+    <MESSAGE value="5-02-2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="5-02-2023" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
